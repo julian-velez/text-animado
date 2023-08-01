@@ -1,0 +1,98 @@
+/* Estilos para el cuerpo (body) del documento */
+body {
+    /* Hace que el contenido del cuerpo se centre tanto horizontal como verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Establece la altura del cuerpo al 100% de la ventana (viewport) del navegador */
+    height: 100vh;
+    /* Elimina el margen predeterminado que tiene el cuerpo */
+    margin: 0;
+    /* Establece la fuente de texto para todo el cuerpo */
+    font-family: Arial, sans-serif;
+    /* Establece el color de fondo del cuerpo a un tono de gris claro */
+    background-color: #f0f0f0;
+  }
+  
+  /* Estilos para los elementos h1 */
+  h1 {
+    /* Establece el tamaño de fuente para los elementos h1 a 28 píxeles */
+    font-size: 48px;
+    /* Establece el color del texto de los elementos h1 a un tono de gris oscuro */
+    color: #333;
+    /* Centra el texto horizontalmente dentro de los elementos h1 */
+    text-align: center;
+    /* Establece la posición de los elementos h1 como relativa al flujo normal del documento */
+    position: relative;
+    /* Establece el nivel de apilamiento (z-index) de los elementos h1 a 1, lo que significa que estarán por encima del blob animado */
+    z-index: 1;
+  }
+  
+  /* Estilos para el elemento con clase .liquid-cursor */
+  .liquid-cursor {
+    /* Establece la posición del elemento .liquid-cursor como absoluta, permitiendo posicionarlo con respecto al viewport */
+    position: absolute;
+    /* Coloca el borde superior del .liquid-cursor en el 50% de la altura del viewport */
+    top: 50%;
+    /* Coloca el borde izquierdo del .liquid-cursor en el 50% del ancho del viewport */
+    left: 50%;
+    /* Establece el ancho del .liquid-cursor a 40 píxeles */
+    width: 40px;
+    /* Establece la altura del .liquid-cursor a 40 píxeles */
+    height: 40px;
+    /* Establece el color de fondo del .liquid-cursor a un tono rojo */
+    background-color: #ff4a4a;
+    /* Establece la opacidad del .liquid-cursor a 0, haciéndolo inicialmente invisible */
+    opacity: 0;
+    /* Hace que el cursor no sea interactivo, es decir, no captura eventos del mouse */
+    pointer-events: none;
+    /* Establece el radio de borde del .liquid-cursor a 50%, lo que crea una forma circular */
+    border-radius: 50%;
+    /* Asigna la animación blobAnimation al .liquid-cursor, con una duración de 2 segundos y se repetirá infinitamente */
+    animation: blobAnimation 2s infinite;
+    /* Aplica una traslación de -50% tanto en el eje x como en el eje y al .liquid-cursor, lo que lo posicionará centrado con respecto a su posición original */
+    transform: translate(-50%, -50%);
+    /* Establece el nivel de apilamiento (z-index) del .liquid-cursor a 0, lo que significa que estará detrás del texto h1 */
+    z-index: 0;
+    /* Agrega una sombra al .liquid-cursor, creando un efecto de borde iluminado */
+    box-shadow: 0 0 20px rgba(255, 74, 74, 0.7);
+  }
+  
+  /* Animación llamada blobAnimation */
+  @keyframes blobAnimation {
+    /* En el 0% y 100% de la animación, el .liquid-cursor tendrá una forma circular y estará centrado */
+    0%, 100% {
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+    /* En el 25% de la animación, el .liquid-cursor tendrá una forma más elíptica */
+    25% {
+      border-radius: 50% 30% 60% 70%;
+      transform: translate(-60%, -50%);
+    }
+    /* En el 50% de la animación, el .liquid-cursor tendrá una forma más asimétrica y estará rotado 45 grados */
+    50% {
+      border-radius: 60% 50% 40% 60%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    /* En el 75% de la animación, el .liquid-cursor tendrá una forma más alargada en la parte inferior */
+    75% {
+      border-radius: 30% 80% 40% 60%;
+      transform: translate(-40%, -50%);
+    }
+  }
+  
+  /* Animación llamada zoomIn */
+  @keyframes zoomIn {
+    /* En el 0% de la animación, el .liquid-cursor no tendrá zoom y estará completamente transparente */
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0;
+    }
+    /* En el 100% de la animación, el .liquid-cursor tendrá un zoom de 1.5 y estará completamente visible */
+    100% {
+      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 1;
+    }
+  }
+  
